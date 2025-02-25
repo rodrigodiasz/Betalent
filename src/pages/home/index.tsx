@@ -71,8 +71,8 @@ export function Home() {
         </div>
       </header>
 
-      <main className="container mx-auto  h-screen">
-        <div className="w-full flex flex-col md:flex-row items-center justify-between mt-6">
+      <main className="container mx-auto h-screen">
+        <div className="w-full flex flex-col md:flex-row items-center p-5 md:p-0 justify-between mt-6">
           <h1 className="font-semibold text-2xl self-start md:self-center mb-4 md:mb-0">
             Funcionários
           </h1>
@@ -80,7 +80,7 @@ export function Home() {
             className="relative flex w-full md:w-auto"
             onSubmit={handleSubmit}
           >
-            <div className="flex-grow md:flex-grow-0 bg-white border-2 border-gray-10 flex rounded p-2">
+            <div className="flex-grow md:flex-grow-0 bg-white border-2 border-gray-10 flex rounded-xl p-2">
               <input
                 className="flex-grow bg-transparent focus:outline-none"
                 type="text"
@@ -147,7 +147,7 @@ export function Home() {
         </div>
 
         {/* Tabela Mobile */}
-        <div className="block md:hidden mt-6">
+        <div className="block md:hidden p-5 md:p-0">
           <table className="w-full leading-normal shadow-md overflow-hidden rounded">
             <thead className="bg-blue-primary text-white">
               <tr className="uppercase">

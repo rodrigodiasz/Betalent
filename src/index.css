@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+:root {
+  font-family: "Roboto", sans-serif;
+}
 
 @theme {
   --color-blue-primary: #0500FF;
@@ -8,12 +13,4 @@
   --color-gray-10: #DFDFDF;
   --color-gray-05: #F5F5F5;
   --color-gray-00: #F0F0F0;
-  container:{
-    center: true;
-    padding: {
-      DEFAULT: '.5rem'
-      sm: '1rem'
-      lg: '2rem'
-    }
-  }
 }
