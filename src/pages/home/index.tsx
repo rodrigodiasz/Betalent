@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import search from "../../assets/search.svg";
 import logo from "../../assets/logo.svg";
+import { useDebounce } from "../../hooks/useDebounce";
 
 interface Dataprops {
   id: string;
@@ -15,9 +16,10 @@ export function Home() {
   const [employees, setEmployees] = useState<Dataprops[]>([]);
   const [input, setInput] = useState("");
   const [openEmployeeId, setOpenEmployeeId] = useState<string | null>(null);
+  const debouncedInput = useDebounce(input, 500);
 
   const filteredEmployees = employees.filter((employee) => {
-    const searchTerm = input.toLowerCase();
+    const searchTerm = debouncedInput.toLowerCase();
     const admissionDate = new Date(employee.admission_date)
       .toLocaleDateString()
       .toLowerCase();
@@ -28,6 +30,7 @@ export function Home() {
       admissionDate.includes(searchTerm)
     );
   });
+  
 
   function toggleEmployee(id: string) {
     setOpenEmployeeId(openEmployeeId === id ? null : id);
@@ -50,7 +53,7 @@ export function Home() {
 
   async function getData() {
     try {
-      const response = await fetch("http://localhost:3000/employees");
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/employees`);
       const data = await response.json();
       setEmployees(data);
     } catch (error) {
